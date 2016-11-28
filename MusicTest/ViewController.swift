@@ -57,7 +57,16 @@ class ViewController: UIViewController {
     }
     
     @IBAction func stopMusic(_ sender: UIBarButtonItem) {
+        var items = toolbar.items
         
+        audioPlayer.stop()
+        audioPlayer.currentTime = 0
+        
+        playPauseBtn = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.play, target: self, action: "playPause:")
+        items![0] = playPauseBtn
+        toolbar.setItems(items, animated: true)
+        audioPlayer.stop()
+        musicPaused = false
     }
 
 }
